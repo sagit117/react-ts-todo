@@ -15,6 +15,12 @@
       display: flex;
       justify-content: space-between;
       border-left: .8rem solid blue;
+      cursor: move;
+      opacity: 1;
+
+      &.drag {
+        opacity: .4;
+      }
 
       span {
         font-size: 1.5rem;
