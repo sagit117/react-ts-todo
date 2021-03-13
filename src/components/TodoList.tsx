@@ -10,18 +10,22 @@ interface IProps {
 }
 
 function TodoList(props: IProps) {
-     const renderTodos = props.todos.map((todo, idx) => {
+     const renderTodos = props.todos.map(function(todo, idx) {
          const remove = () => props.onRemoveTodo(idx)
          const setStatus = () => props.setStatusTodo(idx)
 
-         return (
-             <TodoItem
-                 todo={ todo }
-                 key={ idx }
-                 onRemoveTodo={ remove }
-                 setStatus={ setStatus }
-             />
-         )
+         if (!todo.complete) {
+             return (
+                 <TodoItem
+                     todo={ todo }
+                     key={ idx }
+                     onRemoveTodo={ remove }
+                     setStatus={ setStatus }
+                 />
+             )
+         } else {
+            return ''
+         }
      })
 
     return (

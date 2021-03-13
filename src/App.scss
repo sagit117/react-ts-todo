@@ -1,11 +1,55 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
 .App {
+  .todo-input {
+    display: flex;
+    justify-content: center;
+  }
 
-}
+  .todo-list, .completed-list {
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
 
-.todo-list {
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      border-left: .8rem solid blue;
 
-}
+      span {
+        font-size: 1.5rem;
+        margin-left: 1rem;
 
-.todo-item {
+        &.completed {
+          text-decoration: line-through;
+        }
+        &.no-completed {
+          text-decoration: none;
+        }
+      }
 
+      .todo-item-action {
+        display: flex;
+
+        button {
+          width: 10rem;
+        }
+      }
+    }
+
+    .completed-todo-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      svg {
+        width: 24px;
+        height: 24px;
+
+        &.hide {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
 }
