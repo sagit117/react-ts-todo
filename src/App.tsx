@@ -1,13 +1,11 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-import './style/App.scss';
+import React, { Suspense } from 'react'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import NavComponent from './components/NavComponent'
 
-const TodosComponent = lazy(() => import('./components/TodosComponents'))
-const TheHome = lazy(() => import('./components/TheHome'))
-const NotFound = lazy(() => import('./components/NotFound'))
+import routes from './routes/routes'
+
+import './style/App.scss'
 
 function App() {
     return (
@@ -19,9 +17,14 @@ function App() {
 
                 <Suspense fallback={ <div>Загрузка...</div> }>
                     <Switch>
-                        <Route exact path="/todos" component={ TodosComponent } />
-                        <Route exact path="/home" component={ TheHome } />
-                        <Route path="*" component={ NotFound } />
+                        { routes.map((route, index) => (
+                            <Route
+                                key={ index }
+                                path={ route.path }
+                                exact={ route.exact }
+                                component={ route.component }
+                            />
+                        ))}
                     </Switch>
                 </Suspense>
             </Router>
