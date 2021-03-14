@@ -4,6 +4,10 @@
   .todo-input {
     display: flex;
     justify-content: center;
+
+    .input-group {
+      align-items: center;
+    }
   }
 
   .todo-list, .completed-list {

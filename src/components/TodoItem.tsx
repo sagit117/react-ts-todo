@@ -26,12 +26,12 @@ function TodoItem(props: IProps) {
             <div className="todo-item-action">
                 <button
                     className="btn btn-outline-success mr-2"
-                    onClick={ () => props.setStatus() }>
+                    onClick={ props.setStatus }>
                     {props.todo.complete ? 'Выполнено': 'Не выполнено'}
                 </button>
                 <button
                     className="btn btn-danger"
-                    onClick={ () => props.onRemoveTodo() }>
+                    onClick={ props.onRemoveTodo }>
                     Удалить
                 </button>
             </div>

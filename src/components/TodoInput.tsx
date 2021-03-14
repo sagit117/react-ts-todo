@@ -28,14 +28,19 @@ function TodoInput(props: IProps) {
 
     return (
         <div className="todo-input mt-4 p-2">
-            <input
-                type="text"
-                className="mr-2 form-control form-control-lg"
-                onChange={ event => setTodo(event.target.value) }
-                onKeyPress={ event => onKeyPressHandler(event) }
-                value={ todo }
-            />
-            <button className="btn btn-primary" onClick={ () => saveTodo(todo) }>Добавить</button>
+            <div className="input-group">
+                <label htmlFor="todo" className="mr-2">Новое дело:</label>
+                <input
+                    type="text"
+                    id="todo"
+                    tabIndex={0}
+                    className="mr-2 form-control form-control-lg"
+                    onChange={ event => setTodo(event.target.value) }
+                    onKeyPress={ onKeyPressHandler }
+                    value={ todo }
+                />
+            </div>
+            <button className="btn btn-primary" tabIndex={0} onClick={ () => saveTodo(todo) }>Добавить</button>
         </div>
     )
 }

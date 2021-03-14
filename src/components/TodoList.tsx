@@ -29,10 +29,12 @@ function TodoList(props: IProps) {
      })
 
     return (
-        <div className="todo-list">
-            <h3>Список дел</h3>
-            {renderTodos}
-        </div>
+        <main>
+            <div className="todo-list">
+                <h3>Список дел</h3>
+                {renderTodos}
+            </div>
+        </main>
     )
 }
 

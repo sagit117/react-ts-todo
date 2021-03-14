@@ -30,21 +30,36 @@ function CompletedList(props: IProps) {
         }
     })
 
+    function onKeyPressHandler(event: React.KeyboardEvent<HTMLInputElement>) {
+        if (event.key === 'Spacebar' || event.key === ' ') {
+            setShowList(!showList)
+        }
+    }
+
     return (
-        <div className="completed-list">
-            <div className="completed-todo-title">
-                <h3>Выполненные</h3>
-                <div className="btn" onClick={ () => setShowList(!showList) }>
-                    <svg
-                        viewBox="0 0 24 24"
-                        className={ !showList ? 'hide' : '' }
+        <main>
+            <div className="completed-list">
+                <div className="completed-todo-title">
+                    <h3>Выполненные</h3>
+                    <div
+                        className="btn"
+                        onClick={ () => setShowList(!showList) }
+                        onKeyPress={ onKeyPressHandler }
+                        tabIndex={0}
+                        role="button"
+                        title={ showList ? 'Скрыть' : 'Показать' }
                     >
-                        <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M7,10L12,15L17,10H7Z" />
-                    </svg>
+                        <svg
+                            viewBox="0 0 24 24"
+                            className={ !showList ? 'hide' : '' }
+                        >
+                            <path fill="currentColor" d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M7,10L12,15L17,10H7Z" />
+                        </svg>
+                    </div>
                 </div>
+                { showList && renderTodos }
             </div>
-            { showList && renderTodos }
-        </div>
+        </main>
     )
 }
 

@@ -42,7 +42,9 @@ function App() {
 
     return (
         <div className="App">
-            <TodoInput onInputTodo={ addTodos } />
+            <header>
+                <TodoInput onInputTodo={ addTodos } />
+            </header>
             <TodoList
                 todos={ items }
                 onRemoveTodo={ removeTodo }
